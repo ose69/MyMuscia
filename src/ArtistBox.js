@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import{
     StyleSheet,
     View,
+    Text,
     Image
 } from 'react-native';
 
@@ -9,10 +10,10 @@ export default class ArtistBox extends Component<Props>{
     render(){
         const {image,name}=this.props.artist
         return(
-            <View style={StyleSheet.artistBox}>
-            <Image style={StyleSheet.image} source={{uri:image}}></Image>
-            <View style={StyleSheet.info}>
-            <Text style={StyleSheet.name}>{name}></Text>
+            <View style={styles.artistBox}>
+            <Image style={styles.image} source={{uri:image}}></Image>
+            <View style={styles.info}>
+            <Text style={styles.name}>{name}></Text>
             </View>
             </View>
         );

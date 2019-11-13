@@ -8,6 +8,7 @@ import{
     TextInput,
     TouchableOpacity,
 } from 'react-native';
+
 import {Actions}from 'react-native-router-flux'
 import{getToken} from './api-client'
 
@@ -22,6 +23,7 @@ export default class LoginView extends Component{
     }
     ingresar =()=>{
         getToken(this.state.username, this.state.password).then(data=>{
+            console.warn(`dentro de getToken ${data.token}`);
             global.token=data.token
             Actions.home()
         }).catch((error)=>{
@@ -31,16 +33,16 @@ export default class LoginView extends Component{
     render(){
         return(
             <View style={styles.container}>
-            <Image source={require('./assets/ucol.png')} style={styles.logo} resizeMode="contain"></Image>
+            <Image source={require('./assets/ucol.png')} style={styles.logo} resizeMode="contain"/>
             <TextInput
             style={styles.textInput}
             onChangeText={(username)=>this.setState({username})}
             value={this.state.username}
-            placeholder={'correo electrònico'}
+            placeholder={'correo electrónico'}
             placeholderTextColor={'#000035'}
             onSubmitEditing={()=>{this.passwordTextInput.focus();}}
             returnKeyType={'next'}
-            ></TextInput>
+            />
             <TextInput
             style={styles.textInput}
             onChangeText={(password)=>this.setState({password})}
@@ -51,7 +53,7 @@ export default class LoginView extends Component{
             ref={(input)=>{this.passwordTextInput=input;}}
             returnKeyType={'done'}
             onSubmitEditing={this.ingresar}
-            ></TextInput>
+            />
             <TouchableOpacity onPress={this.ingresar} style={styles.boton}>
             <Text style={styles.textoBoton}>
             ENTRAR

@@ -3,7 +3,7 @@ import{
     StyleSheet,
     View,
 } from 'react-native';
-import Artists from './ArtistList'
+import ArtistsList from './ArtistList'
 import { getMusicData} from './api-client'
 
 export default class HomeView extends Component<Props> {

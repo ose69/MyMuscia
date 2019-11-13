@@ -1,9 +1,10 @@
-const URL='https://mobile-api-ucol.herokuapp.com'
+const URL='https://mobile-api-ucol.herokuapp.com/'
 
 function getToken(email, password){
+    console.warn(`dentro de getToken ${email}`);
     return fetch(`${URL}login`,{
         method: 'POST',
-        headers:{
+        headers: {
             Accept:'application/json',
             'Content-Type':'application/json',
         },
@@ -30,11 +31,11 @@ function getMusicData(){
     })
     .then(response=>response.json())
     .then(data=>data.topartists.artist)
-    .then(artist=>artists.map(artist=>{
+    .then(artists=>artists.map(artist=>{
         return{
             id: artist.mbid,
             name:artist.name,
-            image:artist.image[3]['$text'],
+            image:artist.image[3]['#text'],
             likes:200,
             comments: 140
         }

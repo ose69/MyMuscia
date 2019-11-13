@@ -1,17 +1,18 @@
-import React, { Component} from 'react';
+import React, {Component} from 'react';
 import{
     ListView,
-    TouchableOpacity
+    TouchableOpacity,
 } from 'react-native';
-import ArtistBox from './ArtistBox'
-import {Actions}from 'react-native-router-flux';
 
-export default class ArtistList extends Component<props>{
+import ArtistBox from './ArtistBox'
+import {Action, Actions}from 'react-native-router-flux';
+
+export default class ArtistList extends Component<Props>{
     constructor(props){
         super();
         const ds = new ListView.DataSource({rowHasChanged:(r1, r2)=> r1 !== r2});
         this.state={
-            dataSource:ds
+            dataSource: ds
         }
     }
     componentDidMount(){
@@ -28,7 +29,7 @@ export default class ArtistList extends Component<props>{
         })
     }
     handlePress(artists){
-        Actions.artistDetail({artist:artist})
+        Actions.artistDetail({artist: artist})
     }
     render(){
         return(
@@ -38,7 +39,7 @@ export default class ArtistList extends Component<props>{
             renderRow={(artist)=>{
                 return(
                     <TouchableOpacity onPress={()=> this.handlePress(artist)}>
-                    <ArtistBox artist={artist}></ArtistBox>
+                    <ArtistBox artist={artist}/>
                     </TouchableOpacity>
                     )
             }}
