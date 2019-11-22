@@ -1,7 +1,7 @@
 const URL='https://mobile-api-ucol.herokuapp.com/'
 
 function getToken(email, password){
-    console.warn(`dentro de getToken ${email}`);
+    //console.warn(`dentro de getToken ${email}`);
     return fetch(`${URL}login`,{
         method: 'POST',
         headers: {

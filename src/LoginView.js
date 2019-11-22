@@ -42,6 +42,7 @@ export default class LoginView extends Component{
             placeholderTextColor={'#000035'}
             onSubmitEditing={()=>{this.passwordTextInput.focus();}}
             returnKeyType={'next'}
+            autoCapitalize={'none'}
             />
             <TextInput
             style={styles.textInput}
@@ -70,6 +71,7 @@ const styles=StyleSheet.create({
         height:null,
         backgroundColor:'white',
         alignItems:'center',
+        paddingTop:80,
     },
     logo: {
         width:200,
@@ -89,7 +91,7 @@ const styles=StyleSheet.create({
         color:'#000035',
         marginBottom:40,
         borderRadius:5,
-        padding:5,
+        padding:6,
     },
     boton:{
         justifyContent:'center',
@@ -99,7 +101,7 @@ const styles=StyleSheet.create({
         backgroundColor:'#00ccd0',
         borderRadius:5,
         borderWidth:1,
-        borderColor:'#fff'
+        borderColor:'#fff',
     },
     textoBoton:{
         color:"#fff",
